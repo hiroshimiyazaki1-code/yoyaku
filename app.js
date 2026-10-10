@@ -121,7 +121,7 @@
 
   /* ---------- 入力 ---------- */
   function renderStep2() {
-    var isW = code === 'w', isP = code === 'p';
+    var isP = code === 'p'; // 「現在のお仕事・ご希望の職種」欄は 2026-10-10 に削除（宮崎さん指示）
     return '<button class="link-btn" data-act="back">← 日時を選び直す</button>' +
       '<div class="picked"><span>' + fmtD(st.date) + '</span><span class="num">' + fmtT(st.slot) + '〜' + fmtT(st.slot + st.info.dur) + '</span><span>（' + st.info.dur + '分・Zoom）</span></div>' +
       '<div class="step-label">STEP 2 / 2</div><h2>お名前と連絡先を入力してください</h2>' +
@@ -130,7 +130,6 @@
       '<div class="field"><label for="fName">お名前<span class="req">必須</span></label><input id="fName" name="name" autocomplete="name" required placeholder="例：山田 太郎"></div>' +
       '<div class="field"><label for="fMail">メールアドレス<span class="req">必須</span></label><input id="fMail" name="mail" type="email" autocomplete="email" required placeholder="例：taro@example.com"></div>' +
       (isP ? '' : '<div class="field"><label for="fTel">電話番号<span class="opt">任意</span></label><input id="fTel" name="tel" type="tel" autocomplete="tel" placeholder="例：090-0000-0000"></div>') +
-      (isW ? '<div class="field"><label for="fJob">現在のお仕事・ご希望の職種<span class="opt">任意</span></label><input id="fJob" name="job" placeholder="例：Webマーケティング／事業会社への転職を検討中"></div>' : '') +
       '<div class="field"><label for="fMemo">ご相談したいこと<span class="opt">任意</span></label><textarea id="fMemo" name="memo" placeholder="事前に共有しておきたいことがあればご記入ください"></textarea></div>' +
       '<div class="hp" aria-hidden="true"><label for="fWeb">空欄のままにしてください</label><input id="fWeb" name="website" tabindex="-1" autocomplete="off"></div>' +
       '<div><button class="btn primary" type="submit"' + (st.busy ? ' disabled' : '') + '>' + (st.busy ? '送信しています…' : '予約を確定する') + '</button></div>' +
